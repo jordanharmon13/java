@@ -64,7 +64,7 @@ public class Login extends HttpServlet {
                 break;
             } if (valid == true) {
             request.getSession().setAttribute("username", username);
-            response.sendRedirect("landing.jsp");
+            response.sendRedirect("/landing.jsp");
             
             } else {
                 String message = "That is an invalid login";
