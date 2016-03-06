@@ -7,11 +7,14 @@ package sessions;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sessions.HardCodedPasswordHandler;
+import sessions.User;
 
 /**
  *
@@ -51,22 +54,24 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if ((username.equals("david") && password.equals("password"))) {
+        HardCodedPasswordHandler handler = new HardCodedPasswordHandler();
+        
+        List<User> listOfUserPasswords = handler.getAllUsers();
+        Boolean valid = false;
+        for(User user : listOfUserPasswords) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                valid = true;
+                break;
+            } if (valid == true) {
             request.getSession().setAttribute("username", username);
-            response.sendRedirect("home.jsp");
-        } else {
-            response.sendRedirect("Error.jsp");
+            response.sendRedirect("landing.jsp");
+            
+            } else {
+                String message = "That is an invalid login";
+                request.setAttribute("message", message);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+            
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
