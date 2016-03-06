@@ -74,4 +74,8 @@ public class Login extends HttpServlet {
             
         }
     }
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 }
