@@ -55,27 +55,28 @@ public class Login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         HardCodedPasswordHandler handler = new HardCodedPasswordHandler();
-        
-        List<User> listOfUserPasswords = handler.getAllUsers();
+
+        List<User> listOfUsers = handler.getAllUsers();
         Boolean valid = false;
-        for(User user : listOfUserPasswords) {
+        for (User user : listOfUsers) {
             if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 valid = true;
                 break;
-            } if (valid == true) {
-            request.getSession().setAttribute("username", username);
-            response.sendRedirect("/landing.jsp");
-            
-            } else {
-                String message = "That is an invalid login";
-                request.setAttribute("message", message);
-                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-            
         }
+        if (valid == true) {
+            request.getSession().setAttribute("username", username);
+            response.sendRedirect("landing.jsp");
+
+        } else {
+            String message = "That is an invalid login";
+            request.setAttribute("message", message);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+
     }
     @Override
-    public String getServletInfo() {
+        public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 }
