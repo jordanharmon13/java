@@ -5,10 +5,14 @@
  */
 package facebookDemo;
 
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
 import facebook4j.Friend;
 import facebook4j.ResponseList;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -71,6 +75,8 @@ public class ShowFriends extends HttpServlet {
             }
 
         } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (FacebookException e) {
             e.printStackTrace();
         }
     }

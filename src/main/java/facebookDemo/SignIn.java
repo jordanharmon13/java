@@ -5,6 +5,8 @@
  */
 package facebookDemo;
 
+import facebook4j.Facebook;
+import facebook4j.FacebookFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,8 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import facebook4j.Facebook; 
-import facebook4j.FacebookFactory;
 
 /**
  *
@@ -39,28 +39,13 @@ public class SignIn extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SignIn</title>");            
+            out.println("<title>Servlet SignIn</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SignIn at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-    }
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-        Facebook facebook = new FacebookFactory().getInstance();
-
-        request.getSession().setAttribute("facebook", facebook);
-
-        StringBuffer requestUrl = request.getRequestURL(); 
-        int lastSlashIndex = requestUrl.lastIndexOf("/");
-
-        String callBackUrl = requestUrl.substring(0, lastSlashIndex) + "/CallBack";
-
-        String facebookUrl = facebook.getOAuthAuthorizationURL(callBackUrl);
-
-        response.sendRedirect(facebookUrl); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -72,6 +57,21 @@ public class SignIn extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Facebook facebook = new FacebookFactory().getInstance();
+
+        request.getSession().setAttribute("facebook", facebook);
+
+        StringBuffer requestUrl = request.getRequestURL();
+        int lastSlashIndex = requestUrl.lastIndexOf("/");
+
+        String callBackUrl = requestUrl.substring(0, lastSlashIndex) + "/CallBack";
+
+        String facebookUrl = facebook.getOAuthAuthorizationURL(callBackUrl);
+
+        response.sendRedirect(facebookUrl);
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.

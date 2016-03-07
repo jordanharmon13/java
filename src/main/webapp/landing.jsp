@@ -14,6 +14,5 @@
     <body>
         <h1>Welcome to the forum.</h1>
         <p>Click <a href="forum.jsp">HERE</a> to view forums.</p>
-        
     </body>
 </html>

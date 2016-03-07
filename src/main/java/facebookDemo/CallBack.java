@@ -5,8 +5,12 @@
  */
 package facebookDemo;
 
+import facebook4j.Facebook;
+import facebook4j.FacebookException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jorda
  */
-@WebServlet(name = "Callback", urlPatterns = {"/Callback"})
-public class Callback extends HttpServlet {
+@WebServlet(name = "CallBack", urlPatterns = {"/CallBack"})
+public class CallBack extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,22 +41,13 @@ public class Callback extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Callback</title>");            
+            out.println("<title>Servlet CallBack</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Callback at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CallBack at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
-    }
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-        Facebook facebook = (Facebook)request.getSession().getAttribute("facebook");
-
-        String oauthCode = request.getParameter("code");
-
-        facebook.getOAuthAccessToken(oauthCode); 
-        response.sendRedirect("index.jsp"); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,6 +59,19 @@ public class Callback extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Facebook facebook = (Facebook) request.getSession().getAttribute("facebook");
+
+        String oauthCode = request.getParameter("code");
+
+        try {
+            facebook.getOAuthAccessToken(oauthCode);
+        } catch (FacebookException e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect("index.jsp");
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
