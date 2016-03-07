@@ -13,6 +13,6 @@ define("imageDirectory", 'pics/');
 <!DOCTYPE html>
 <html>
 <body>
-	<a href="https://api.instagram.com/oauth/authorize/?client_id=8e92bafbcdcc4c849fdca959b0daba81&redirect_url=http://java-jordanharmon.rhcloud.com/&response_type=code">Login</a>
+	<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code>Login</a>
 </body>
 </html>
