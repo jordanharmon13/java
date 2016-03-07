@@ -10,3 +10,9 @@ define("clientSecret", '024355aaf3d34ba995cdd7dcde5a6bef');
 define("websiteURI", 'http://java-jordanharmon.rhcloud.com/');
 define("imageDirectory", 'pics/');
 ?>
+<!DOCTYPE html>
+<html>
+<body>
+	<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_url=<?php echo clientSecret; ?>&response_type=code">Login</a>
+</body>
+</html>
