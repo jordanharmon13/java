@@ -28,5 +28,4 @@
           filewriter.write(text + "<br><br>");
           filewriter.close();
         %>
-       <jsp:include page="ch15_04.txt" flush="true"/>
 </BODY>
