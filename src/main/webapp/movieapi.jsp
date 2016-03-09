@@ -16,6 +16,7 @@
         <form action="#" method="get">
             <label for="search">Search</label>
             <input name="search" type="text" placeholder="Search">
+            <input type="submit" value="Search">
         </form>
     </body>
 </html>
