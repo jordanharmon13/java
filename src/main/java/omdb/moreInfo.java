@@ -57,7 +57,7 @@ public class moreInfo extends HttpServlet {
            
             for (String key : map.keySet()) {
                 if (key.equals("Poster")) {
-                    out.println("<image src='" + map.get(key) + "' />");
+                    out.println("<img src='" + map.get(key) + "' />");
                     out.println("<br>");
                     break;
                     } else {
