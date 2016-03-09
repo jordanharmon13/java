@@ -15,7 +15,7 @@
         <h1>Search Movies</h1>
         <form action="#" method="get">
             <label for="search">Search</label>
-            <input name="search" type="text" value="Search" placeholder="Search">
+            <input name="search" type="text" placeholder="Search">
         </form>
     </body>
 </html>
