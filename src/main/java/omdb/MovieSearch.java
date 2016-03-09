@@ -55,7 +55,7 @@ public class MovieSearch extends HttpServlet {
             for (Object item : list) {
                 Map<String, Object> innerMap = (Map<String, Object>) item;
                 for (String key : innerMap.keySet()) {
-                    System.out.println(key + ": " + innerMap.get(key));
+                    out.println(key + ": " + innerMap.get(key));
                 }
             }
             out.println("</body>");
