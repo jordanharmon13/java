@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Search Movies</h1>
-        <form action="#" method="get">
+        <form action="MovieSearch" method="get">
             <label for="search">Search</label>
             <input name="search" type="text" placeholder="Search">
             <input type="submit" value="Search">
