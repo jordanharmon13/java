@@ -51,7 +51,6 @@ public class moreInfo extends HttpServlet {
             movieData = movieData.replaceAll(" ", "%20");
             URL url = new URL(movieData);
             
-
             ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> map = mapper.readValue(url, Map.class);
            
