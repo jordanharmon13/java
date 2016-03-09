@@ -12,18 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.net.URL;
-import static java.net.URLEncoder.encode;
-import java.util.List;
-import java.util.Map;
 
 /**
  *
  * @author jorda
  */
-@WebServlet(name = "MovieSearch", urlPatterns = {"/MovieSearch"})
-public class MovieSearch extends HttpServlet {
+@WebServlet(name = "moreInfo", urlPatterns = {"/moreInfo"})
+public class moreInfo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,28 +37,10 @@ public class MovieSearch extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MovieSearch</title>");
+            out.println("<title>Servlet moreInfo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet MovieSearch at " + request.getContextPath() + "</h1>");
-            URL url = new URL("http://www.omdbapi.com/?s=" + request.getParameter("title"));
-
-            ObjectMapper mapper = new ObjectMapper();
-            Map<String, Object> map = mapper.readValue(url, Map.class);
-
-            List list = (List) map.get("Search");
-
-            for (Object item : list) {
-                Map<String, Object> innerMap = (Map<String, Object>) item;
-                for (String key : innerMap.keySet()) {
-                    if (key.equals("Title")) {
-                        out.println("<a href='MovieSearch?title='" + encode((String)innerMap.get(key), "UTF-8") +  ">" + innerMap.get(key) + "</a>");
-                        out.println(key + ": " + innerMap.get(key));
-                        out.println("</a>");
-                        out.println("<br>");
-                    }
-                }
-            }
+            out.println("<h1>Servlet moreInfo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
