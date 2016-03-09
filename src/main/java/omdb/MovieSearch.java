@@ -51,7 +51,7 @@ public class MovieSearch extends HttpServlet {
             Map<String, Object> map = mapper.readValue(url, Map.class);
 
             for (String key : map.keySet()) {          
-                  System.out.println(key + ": " + map.get(key)); 
+                  out.println(key + ": " + map.get(key)); 
             }
             out.println("</body>");
             out.println("</html>");
