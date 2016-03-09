@@ -46,7 +46,7 @@ public class moreInfo extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet moreInfo at " + request.getContextPath() + "</h1>");
-            URL url = new URL("http://www.omdbapi.com/?s=" + request.getParameter("title"));
+            URL url = new URL("http://www.omdbapi.com/?t=" + request.getParameter("title"));
 
             ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> map = mapper.readValue(url, Map.class);
@@ -58,7 +58,7 @@ public class moreInfo extends HttpServlet {
                     out.println("<image src='" + map.get(key) + "' />");
                     out.println("<br>");
                     break;
-                   } else {
+                    } else {
                         out.println(key + ": " + map.get(key) + "<br>");
                     }
             }
