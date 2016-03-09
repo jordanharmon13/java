@@ -5,8 +5,13 @@
  */
 package omdb;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
+import static java.net.URLEncoder.encode;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +46,22 @@ public class moreInfo extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet moreInfo at " + request.getContextPath() + "</h1>");
+            URL url = new URL("http://www.omdbapi.com/?s=" + request.getParameter("title"));
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> map = mapper.readValue(url, Map.class);
+
+            List list = (List) map.get("Search");
+
+            for (String key : map.keySet()) {
+                if (key.equals("Poster")) {
+                    out.println("<image src='" + map.get(key) + "' />");
+                    out.println("<br>");
+                    break;
+                   } else {
+                        out.println(key + ": " + map.get(key) + "<br>");
+                    }
+            }
             out.println("</body>");
             out.println("</html>");
         }
