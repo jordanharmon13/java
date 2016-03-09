@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URL;
+import static java.net.URLEncoder.encode;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +57,7 @@ public class MovieSearch extends HttpServlet {
                 Map<String, Object> innerMap = (Map<String, Object>) item;
                 for (String key : innerMap.keySet()) {
                     if (key.equals("Title")) {
-                        out.println("<a href='#'>");
+                        out.println("<a href='MovieSearch?title='" + encode((String)innerMap.get(key), "UTF-8") +  ">");
                         out.println(key + ": " + innerMap.get(key));
                         out.println("</a>");
                         out.println("<br>");
