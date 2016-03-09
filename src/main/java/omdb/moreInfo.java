@@ -50,9 +50,6 @@ public class moreInfo extends HttpServlet {
 
             ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> map = mapper.readValue(url, Map.class);
-
-            List list = (List) map.get("Search");
-
             for (String key : map.keySet()) {
                 if (key.equals("Poster")) {
                     out.println("<image src='" + map.get(key) + "' />");
