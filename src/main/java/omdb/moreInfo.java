@@ -46,10 +46,15 @@ public class moreInfo extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet moreInfo at " + request.getContextPath() + "</h1>");
-            URL url = new URL("http://www.omdbapi.com/?t=" + request.getParameter("title"));
+            
+            String movieData = "http://www.omdbapi.com/?t=" + request.getParameter("title");
+            movieData = movieData.replaceAll(" ", "%20");
+            URL url = new URL(movieData);
+            
 
             ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> map = mapper.readValue(url, Map.class);
+           
             for (String key : map.keySet()) {
                 if (key.equals("Poster")) {
                     out.println("<image src='" + map.get(key) + "' />");
