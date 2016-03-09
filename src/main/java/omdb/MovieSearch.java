@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
-
 
 /**
  *
@@ -41,17 +41,22 @@ public class MovieSearch extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet MovieSearch</title>");            
+            out.println("<title>Servlet MovieSearch</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MovieSearch at " + request.getContextPath() + "</h1>");
-            URL url = new URL("http://www.omdbapi.com/?s=" + request.getParameter("title") );
+            URL url = new URL("http://www.omdbapi.com/?s=" + request.getParameter("title"));
 
-            ObjectMapper mapper = new ObjectMapper(); 
+            ObjectMapper mapper = new ObjectMapper();
             Map<String, Object> map = mapper.readValue(url, Map.class);
 
-            for (String key : map.keySet()) {          
-                  out.println(key + ": " + map.get(key)); 
+            List list = (List) map.get("Search");
+
+            for (Object item : list) {
+                Map<String, Object> innerMap = (Map<String, Object>) item;
+                for (String key : innerMap.keySet()) {
+                    System.out.println(key + ": " + innerMap.get(key));
+                }
             }
             out.println("</body>");
             out.println("</html>");
@@ -96,7 +101,5 @@ public class MovieSearch extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    
 
 }
