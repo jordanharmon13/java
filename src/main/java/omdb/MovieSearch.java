@@ -45,7 +45,7 @@ public class MovieSearch extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MovieSearch at " + request.getContextPath() + "</h1>");
-            URL url = new URL("http://www.omdbapi.com/?t=True%20Grit&y=1969");
+            URL url = new URL("http://www.omdbapi.com/?t=" + request.getParameter("title") );
 
             ObjectMapper mapper = new ObjectMapper(); 
             Map<String, Object> map = mapper.readValue(url, Map.class);
