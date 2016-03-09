@@ -12,6 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.net.URL;
+import java.util.Map;
+
 
 /**
  *
@@ -41,6 +45,14 @@ public class MovieSearch extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MovieSearch at " + request.getContextPath() + "</h1>");
+            URL url = new URL("http://www.omdbapi.com/?t=True%20Grit&y=1969");
+
+            ObjectMapper mapper = new ObjectMapper(); 
+            Map<String, Object> map = mapper.readValue(url, Map.class);
+
+            for (String key : map.keySet()) {          
+                  System.out.println(key + ": " + map.get(key)); 
+            }
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,5 +96,7 @@ public class MovieSearch extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    
 
 }
