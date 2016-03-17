@@ -45,7 +45,7 @@ public class showAncestors extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet showAncestors at " + request.getContextPath() + "</h1>");
             connectToAndQueryDatabase connect = new connectToAndQueryDatabase();
-            out.println();
+            out.println("This is the connect " + connect);
             out.println("</body>");
             out.println("</html>");
         }
