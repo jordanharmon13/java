@@ -25,7 +25,7 @@ public class connectToAndQueryDatabase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
-            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cs313", "admin", "admin");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/cs313", "root", "");
             con.createStatement();
         } catch (Exception ex) {
             System.out.println("Error " + ex);
