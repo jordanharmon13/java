@@ -35,11 +35,14 @@ public class database {
             
             String query = "SELECT * FROM Person";
             rs = stmt.executeQuery(query);
-            data += "records from database<br>";
+            data = "records from database<br>";
             while(rs.next()) {
                 String name = rs.getString("name");
+                String eyeColor = rs.getString("eyecolor");
+                String hairColor = rs.getString("haircolor");
                 int age = rs.getInt("age");
-                data += "Name: " + name + "Age: " + age;
+                int id = rs.getInt("id");
+                data += "<a href='person?id=" + id + "&name=" + name + "&eye=" + eyeColor + "&hair=" + hairColor + "&age=" + age + "'>Name: " + name + "</a><br>";
             }
         } catch (Exception ex) {
             System.out.println("Error " + ex);
