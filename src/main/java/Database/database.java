@@ -24,7 +24,7 @@ public class database {
     public database() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection("mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
             stmt = (Statement) con.createStatement();
             
             String query = "SELECT * FROM Person";
