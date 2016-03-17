@@ -12,14 +12,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>$(name)</h1>
+        <h1><a href=showAncestors">Back To Ancestors</a></h1>
+        <h3>${name}</h3>
         <ul>
             Age
-            <li>$(age)</li>
+            <li>${age}</li>
             Hair
-            <li>$(hair)</li>
+            <li>${hair}</li>
             Eye
-            <li>$(eye)</li>
+            <li>${eye}</li>
         </ul>
     </body>
 </html>
