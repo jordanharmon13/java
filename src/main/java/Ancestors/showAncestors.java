@@ -5,7 +5,7 @@
  */
 package Ancestors;
 
-import Database.connectToAndQueryDatabase;
+import Database.database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -44,7 +44,7 @@ public class showAncestors extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet showAncestors at " + request.getContextPath() + "</h1>");
-            connectToAndQueryDatabase connect = new connectToAndQueryDatabase();
+            database connect = new database();
             out.println("This is the connect " + connect);
             out.println("</body>");
             out.println("</html>");
