@@ -43,7 +43,7 @@ public class connectToAndQueryDatabase {
                 out.println("Name: " + name + "<br>Age: " + age);
             }
         } catch (Exception ex) {
-            System.out.println("Erro: " + ex);
+            System.out.println("Error: " + ex);
         }
     }
 
