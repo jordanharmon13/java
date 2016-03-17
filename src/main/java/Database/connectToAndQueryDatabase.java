@@ -17,16 +17,16 @@ import java.sql.SQLException;
  * @author jorda
  */
 public class connectToAndQueryDatabase {
-    private Connection con;
-    private Statement st;
-    private ResultSet rs;
+    Connection con = null;
+    Statement st = null;
+    ResultSet rs = null;
     
     public connectToAndQueryDatabase() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
             con = (Connection) DriverManager.getConnection("mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
-            con.createStatement();
+            st = (Statement) con.createStatement();
         } catch (Exception ex) {
             System.out.println("Error " + ex);
         }
