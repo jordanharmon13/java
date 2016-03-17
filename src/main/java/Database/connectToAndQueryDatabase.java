@@ -24,7 +24,6 @@ public class connectToAndQueryDatabase {
     public connectToAndQueryDatabase() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            
             con = (Connection) DriverManager.getConnection("mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
             stmt = (Statement) con.createStatement();
             
@@ -34,7 +33,7 @@ public class connectToAndQueryDatabase {
             while(rs.next()) {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
-                out.println("Name: " + name + "<br>Age: " + age);
+                out.println("Name: " + name + "Age: " + age);
             }
         } catch (Exception ex) {
             System.out.println("Error " + ex);
