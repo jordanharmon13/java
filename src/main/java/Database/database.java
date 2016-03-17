@@ -25,7 +25,9 @@ public class database {
         connection();
     }
     
-    public void connection() {
+    public String connection() {
+        String data = null;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection("jdbc:mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
@@ -33,15 +35,16 @@ public class database {
             
             String query = "SELECT * FROM Person";
             rs = stmt.executeQuery(query);
-            out.println("records from database");
+            data += "records from database<br>";
             while(rs.next()) {
                 String name = rs.getString("name");
                 int age = rs.getInt("age");
-                out.println("Name: " + name + "Age: " + age);
+                data += "Name: " + name + "Age: " + age;
             }
         } catch (Exception ex) {
             System.out.println("Error " + ex);
         }
+        return data;
     }
 
     private void createStatement() {

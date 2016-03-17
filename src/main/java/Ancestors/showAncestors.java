@@ -46,7 +46,7 @@ public class showAncestors extends HttpServlet {
             out.println("<h1>Servlet showAncestors at " + request.getContextPath() + "</h1>");
             database connect = new database();
             out.println("This is the data");
-            connect.connection();
+            out.println(connect.connection());
             out.println("</body>");
             out.println("</html>");
         }
