@@ -27,6 +27,15 @@ public class connectToAndQueryDatabase {
             
             con = (Connection) DriverManager.getConnection("mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
             stmt = (Statement) con.createStatement();
+            
+            String query = "SELECT * FROM Person";
+            rs = stmt.executeQuery(query);
+            out.println("records from database");
+            while(rs.next()) {
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+                out.println("Name: " + name + "<br>Age: " + age);
+            }
         } catch (Exception ex) {
             System.out.println("Error " + ex);
         }
