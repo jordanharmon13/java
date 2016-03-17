@@ -39,7 +39,7 @@ public class connectToAndQueryDatabase {
             out.println("records from database");
             while(rs.next()) {
                 String name = rs.getString("name");
-                String age = rs.getString("age");
+                int age = rs.getInt("age");
                 out.println("Name: " + name + "<br>Age: " + age);
             }
         } catch (Exception ex) {
