@@ -17,9 +17,9 @@ import java.sql.SQLException;
  * @author jorda
  */
 public class database {
-    Connection con = null;
-    Statement stmt = null;
-    ResultSet rs = null;
+    private Connection con = null;
+    private Statement stmt = null;
+    private ResultSet rs = null;
     
     public database() {
         connection();
