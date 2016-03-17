@@ -25,7 +25,7 @@ public class connectToAndQueryDatabase {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             
-            con = (Connection) DriverManager.getConnection("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminiTh2QFu", "FCmhgwXPwVC2");
+            con = (Connection) DriverManager.getConnection("mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
             con.createStatement();
         } catch (Exception ex) {
             System.out.println("Error " + ex);
