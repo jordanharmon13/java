@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><a href=showAncestors">Back To Ancestors</a></h1>
+        <h1><a href="showAncestors">Back To Ancestors</a></h1>
         <h3>${name}</h3>
         <ul>
             Age
