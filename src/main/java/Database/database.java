@@ -22,6 +22,10 @@ public class database {
     ResultSet rs = null;
     
     public database() {
+        connection();
+    }
+    
+    public void connection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection("jdbc:mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");

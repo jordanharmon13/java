@@ -6,13 +6,8 @@
 package Ancestors;
 
 import Database.database;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,9 +20,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "showAncestors", urlPatterns = {"/showAncestors"})
 public class showAncestors extends HttpServlet {
-    Connection con = null;
-    Statement stmt = null;
-    ResultSet rs = null;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,31 +35,16 @@ public class showAncestors extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
+            
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet showAncestors</title>");
+            out.println("<title>Servlet showAncestors</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet showAncestors at " + request.getContextPath() + "</h1>");
             database connect = new database();
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                con = (Connection) DriverManager.getConnection("jdbc:mysql://127.11.26.2:3306/java", "adminiTh2QFu", "FCmhgwXPwVC2");
-                stmt = (Statement) con.createStatement();
-
-                String query = "SELECT * FROM Person";
-                rs = stmt.executeQuery(query);
-                out.println("records from database");
-                while (rs.next()) {
-                    String name = rs.getString("name");
-                    int age = rs.getInt("age");
-                    out.println("Name: " + name + "Age: " + age);
-                }
-            } catch (Exception ex) {
-                System.out.println("Error " + ex);
-            }
             out.println("This is the connect " + connect);
             out.println("</body>");
             out.println("</html>");
