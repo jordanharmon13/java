@@ -40,6 +40,7 @@ public class instaOperations extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String code = request.getParameter("code");
+            /*
             String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
             String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
             String redirectURI = "http://java-jordanharmon.rhcloud.com/instaOperations";
@@ -81,7 +82,7 @@ public class instaOperations extends HttpServlet {
             while ((c = input.read()) != -1) {
                 resultBuf.append((char) c);
             }
-            input.close();
+            input.close();*/
 
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
