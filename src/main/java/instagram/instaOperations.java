@@ -5,10 +5,12 @@
  */
 package instagram;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Array;
@@ -19,6 +21,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jinstagram.Instagram;
+import org.jinstagram.auth.InstagramAuthService;
+import org.jinstagram.auth.model.Token;
+import org.jinstagram.auth.model.Verifier;
+import org.jinstagram.auth.oauth.InstagramService;
+import org.jinstagram.entity.users.basicinfo.UserInfo;
+import org.jinstagram.entity.users.basicinfo.UserInfoData;
 
 /**
  *
@@ -27,6 +36,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
 public class instaOperations extends HttpServlet {
 
+    InstagramService service = new InstagramAuthService()
+            .apiKey("8e92bafbcdcc4c849fdca959b0daba81")
+            .apiSecret("024355aaf3d34ba995cdd7dcde5a6bef")
+            .callback("http://java-jordanharmon.rhcloud.com/instaOperations")
+            .build();
+    
+    private static final Token EMPTY_TOKEN = null;
+
+    String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
+    
+    Verifier verifier = new Verifier("verifier you get from the user");
+    Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
+
+    Instagram instagram = new Instagram(accessToken);
+    long userId = 3;
+    UserInfo userInfo = instagram.getUserInfo(userId);
+
+    UserInfoData userData = userInfo.getData();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,22 +67,6 @@ public class instaOperations extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
-            String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
-            String redirectURI = "http://java-jordanharmon.rhcloud.com/instaOperations";
-            String imageDirectory = "pics/";
-            String code = request.getParameter("code");
-            String url = "https://api.instagram.com/oauth/access_token";
-
-            Map<String, String> instaInfo = new HashMap<>();
-
-            instaInfo.put("clientID", clientID);
-            instaInfo.put("client_secret", clientSecret);
-            instaInfo.put("grant_type", "authorize_code");
-            instaInfo.put("redirect_uri", redirectURI);
-            instaInfo.put("code", code);
-            
-            
 
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -65,7 +76,11 @@ public class instaOperations extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet instaOperations at " + request.getContextPath() + "</h1>");
-            out.println(code);
+            out.println("id : " + userData.getId());
+            out.println("first_name : " + userData.getFirstName());
+            out.println("last_name : " + userData.getLastName());
+            out.println("profile_picture : " + userData.getProfilePicture());
+            out.println("website : " + userData.getWebsite());
             out.println("</body>");
             out.println("</html>");
         }

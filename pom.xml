@@ -84,6 +84,24 @@
             <type>jar</type>
         </dependency>
         <dependency>
+            <groupId>com.github.spinalhdl</groupId>
+            <artifactId>spinalhdl-core_2.11</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.github.spinalhdl</groupId>
+            <artifactId>spinalhdl-test_2.11</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.razie</groupId>
+            <artifactId>scalafs_2.9.1</artifactId>
+            <version>0.3-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
