@@ -67,11 +67,13 @@ public class instaAPI extends HttpServlet {
             UserInfo userInfo = instagram.getUserInfo(userId);
 
             UserInfoData userData = userInfo.getData();
+            out.println("<p>");
             out.println("id : " + userData.getId());
             out.println("first_name : " + userData.getFirstName());
             out.println("last_name : " + userData.getLastName());
             out.println("profile_picture : " + userData.getProfilePicture());
             out.println("website : " + userData.getWebsite());
+            out.println("</p>");
             out.println("</body>");
             out.println("</html>");
         }
