@@ -130,10 +130,6 @@ public class Instagram {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Instagram(jdk.nashorn.internal.parser.Token accessToken) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public InstagramConfig getInstagramConfig() {
         return config;
     }
@@ -1303,5 +1299,9 @@ public class Instagram {
         }
 
         return object;
+    }
+
+    public UserInfo getUserInfo(long userId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

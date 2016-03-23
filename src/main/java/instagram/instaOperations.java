@@ -5,17 +5,8 @@
  */
 package instagram;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.sql.Array;
-import java.util.HashMap;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

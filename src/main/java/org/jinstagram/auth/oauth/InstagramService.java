@@ -115,19 +115,15 @@ public class InstagramService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getAuthorizationUrl(jdk.nashorn.internal.parser.Token EMPTY_TOKEN) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getAuthorizationUrl(jdk.nashorn.internal.parser.Token EMPTY_TOKEN) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public jdk.nashorn.internal.parser.Token getAccessToken(jdk.nashorn.internal.parser.Token EMPTY_TOKEN, Verifier verifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public jdk.nashorn.internal.parser.Token getAccessToken(jdk.nashorn.internal.parser.Token EMPTY_TOKEN, Verifier verifier) {
+    public String getAuthorizationUrl(Token EMPTY_TOKEN) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Token getAccessToken(Token EMPTY_TOKEN, Verifier verifier) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
