@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Array;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletException;
@@ -39,50 +40,22 @@ public class instaOperations extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String code = request.getParameter("code");
-            /*
             String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
             String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
             String redirectURI = "http://java-jordanharmon.rhcloud.com/instaOperations";
             String imageDirectory = "pics/";
+            String code = request.getParameter("code");
+            String url = "https://api.instagram.com/oauth/access_token";
 
-            Map array = new HashMap();
-            array.put("clientID", clientID);
-            array.put("client_secret", clientSecret);
-            array.put("grant_type", "authorize_code");
-            array.put("redirect_uri", redirectURI);
-            array.put("code", code);
+            Map<String, String> instaInfo = new HashMap<>();
 
-            // curl_init and url
-            URL url = new URL("https://api.instagram.com/oauth/access_token");
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-
-            //  CURLOPT_POST
-            con.setRequestMethod("POST");
-
-            String postData = "my_data_for_posting";
-            con.setRequestProperty("Content-length", String.valueOf(postData.length()));
-
-            con.setDoOutput(true);
-            con.setDoInput(true);
-
-            DataOutputStream output = new DataOutputStream(con.getOutputStream());
-            output.writeBytes(postData);
-            output.close();
-
-            // "Post data send ... waiting for reply");
-            int codeInt = con.getResponseCode(); // 200 = HTTP_OK
-            System.out.println("Response    (Code):" + code);
-            System.out.println("Response (Message):" + con.getResponseMessage());
-
-            // read the response
-            DataInputStream input = new DataInputStream(con.getInputStream());
-            int c;
-            StringBuilder resultBuf = new StringBuilder();
-            while ((c = input.read()) != -1) {
-                resultBuf.append((char) c);
-            }
-            input.close();*/
+            instaInfo.put("clientID", clientID);
+            instaInfo.put("client_secret", clientSecret);
+            instaInfo.put("grant_type", "authorize_code");
+            instaInfo.put("redirect_uri", redirectURI);
+            instaInfo.put("code", code);
+            
+            
 
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
