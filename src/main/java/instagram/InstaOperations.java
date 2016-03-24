@@ -19,7 +19,7 @@ import org.jinstagram.auth.oauth.InstagramService;
  *
  * @author jorda
  */
-//@WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
+//@WebServlet(name = "InstaOperations", urlPatterns = {"/InstaOperations"})
 public class InstaOperations extends HttpServlet {
     
     @Override
