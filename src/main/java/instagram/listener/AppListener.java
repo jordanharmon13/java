@@ -20,9 +20,9 @@ public class AppListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
 
-        String clientId = System.getenv(Constants.CLIENT_ID);
-        String clientSecret = System.getenv(Constants.CLIENT_SECRET);
-        String callbackUrl = System.getenv(Constants.REDIRECT_URI);
+        String clientId = "8e92bafbcdcc4c849fdca959b0daba81";
+        String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
+        String callbackUrl = "http://java-jordanharmon.rhcloud.com/instaOperations";
 
 
         InstagramService service = new InstagramAuthService()
