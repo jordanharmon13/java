@@ -23,8 +23,8 @@ public final class Constants {
     /**
      * Http Session Attributes
      */
-    public static final String INSTAGRAM_OBJECT = "igObject";
-    public static final String INSTAGRAM_SERVICE = "igService";
+    public static String INSTAGRAM_OBJECT = "igObject";
+    public static String INSTAGRAM_SERVICE = "igService";
 
     public static final int MAX_PAGE_SIZE = 5;
 }
