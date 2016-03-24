@@ -13,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static instagram.Constants.CLIENT_ID;
+import static instagram.Constants.REDIRECT_URI;
 
 /**
  *
@@ -20,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "instaAPI", urlPatterns = {"/instaAPI"})
 public class instaAPI extends HttpServlet {
-    String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
+    /*String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
     String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
     String redirectURI = "http://java-jordanharmon.rhcloud.com/instaOperations";
     String imageDirectory = "pics/";
-
+*/
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,7 +50,7 @@ public class instaAPI extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet instaAPI at " + request.getContextPath() + "</h1>");
-            out.println("<a href='https://api.instagram.com/oauth/authorize/?client_id=" + clientID + "&redirect_uri=" + redirectURI + "&response_type=code'>Login</a>");
+            out.println("<a href='https://api.instagram.com/oauth/authorize/?client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URI + "&response_type=code'>Login</a>");
             out.println("</body>");
             out.println("</html>");
         }
