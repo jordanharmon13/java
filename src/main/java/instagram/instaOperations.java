@@ -5,6 +5,7 @@
  */
 package instagram;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,25 +27,8 @@ import org.jinstagram.entity.users.basicinfo.UserInfoData;
  */
 @WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
 public class instaOperations extends HttpServlet {
-
-    InstagramService service = new InstagramAuthService()
-            .apiKey("8e92bafbcdcc4c849fdca959b0daba81")
-            .apiSecret("024355aaf3d34ba995cdd7dcde5a6bef")
-            .callback("http://java-jordanharmon.rhcloud.com/instaOperations")
-            .build();
     
     private static final Token EMPTY_TOKEN = null;
-
-    String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
-    
-    Verifier verifier = new Verifier("verifier you get from the user");
-    Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
-
-    Instagram instagram = new Instagram(accessToken);
-    long userId = 3;
-    UserInfo userInfo = instagram.getUserInfo(userId);
-
-    UserInfoData userData = userInfo.getData();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,6 +41,24 @@ public class instaOperations extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        String code = request.getParameter("code");
+        InstagramService service = new InstagramAuthService()
+            .apiKey("8e92bafbcdcc4c849fdca959b0daba81")
+            .apiSecret("024355aaf3d34ba995cdd7dcde5a6bef")
+            .callback("http://java-jordanharmon.rhcloud.com/instaOperations")
+            .build();
+
+    String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
+    
+    Verifier verifier = new Verifier(code);
+    Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
+
+    Instagram instagram = new Instagram(accessToken);
+    long userId = 3;
+    UserInfo userInfo = instagram.getUserInfo(userId);
+
+    UserInfoData userData = userInfo.getData();
         try (PrintWriter out = response.getWriter()) {
 
             /* TODO output your page here. You may use following sample code. */
