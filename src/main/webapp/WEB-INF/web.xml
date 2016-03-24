@@ -5,7 +5,7 @@
     </listener>
     <servlet>
         <servlet-name>InstagramTokenHandler</servlet-name>
-        <servlet-class>instagram.instaOperations</servlet-class>
+        <servlet-class>instagram.InstaOperations</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InstagramTokenHandler</servlet-name>
