@@ -10,7 +10,7 @@
         <h1>Hello Servlet</h1>
         <ul>
             <li><a href="login.jsp">Login</a></li>
-            <li><a href="index.html">Home Page</a></li>
+            <li><a href="index.jsp">Home Page</a></li>
             <li><a href="instaAPI">Instagram API</a></li>
             <li><a href="#">Login with Facebook</a></li>
             <li><a href="omdb.jsp">Search Movies and Data</a></li>

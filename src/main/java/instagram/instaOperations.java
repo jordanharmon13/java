@@ -49,13 +49,13 @@ public class instaOperations extends HttpServlet {
             .callback("http://java-jordanharmon.rhcloud.com/instaOperations")
             .build();
 
-    String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
+    //String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
     
     Verifier verifier = new Verifier(code);
-    Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
+    Token accessToken = service.getAccessToken(verifier);
 
     Instagram instagram = new Instagram(accessToken);
-    long userId = 458131440;
+    String userId = "458131440";
     UserInfo userInfo = instagram.getUserInfo(userId);
 
     UserInfoData userData = userInfo.getData();
