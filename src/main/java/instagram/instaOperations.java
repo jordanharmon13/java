@@ -6,7 +6,6 @@
 package instagram;
 
 import java.io.IOException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,9 +19,10 @@ import org.jinstagram.auth.oauth.InstagramService;
  *
  * @author jorda
  */
-@WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
+//@WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
 public class instaOperations extends HttpServlet {
     
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String code = request.getParameter("code");
 
