@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
-    <listener>
-        <listener-class>listener.AppListener</listener-class>
-    </listener>
     <servlet>
         <servlet-name>InstagramTokenHandler</servlet-name>
         <servlet-class>instagram.InstaOperations</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InstagramTokenHandler</servlet-name>
-        <url-pattern>/handleinstaOperations/</url-pattern>
+        <url-pattern>/handleInstaOperations/</url-pattern>
     </servlet-mapping>
 </web-app>
