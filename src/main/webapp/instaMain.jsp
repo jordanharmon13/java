@@ -34,7 +34,7 @@
 
     <div class="jumbotron">
         <h1>Demo</h1>
-        <p><a href="<%= authorizationUrl%>"><img src="images/Instagram_normal.png"/></a>
+        <p><a href="<%= authorizationUrl%>">Login to Instagram</a>
         </p>
     </div>
     </body>
