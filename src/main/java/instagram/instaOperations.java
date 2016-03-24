@@ -41,24 +41,19 @@ public class instaOperations extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        InstagramService service = (InstagramService) request.getServletContext().getAttribute(Constants.INSTAGRAM_SERVICE);
         String code = request.getParameter("code");
-        InstagramService service = new InstagramAuthService()
-            .apiKey("8e92bafbcdcc4c849fdca959b0daba81")
-            .apiSecret("024355aaf3d34ba995cdd7dcde5a6bef")
-            .callback("http://java-jordanharmon.rhcloud.com/instaOperations")
-            .build();
 
-    //String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
-    
-    Verifier verifier = new Verifier(code);
-    Token accessToken = service.getAccessToken(verifier);
+        //String authorizationUrl = service.getAuthorizationUrl(EMPTY_TOKEN);
 
-    Instagram instagram = new Instagram(accessToken);
-    String userId = "458131440";
-    UserInfo userInfo = instagram.getUserInfo(userId);
+        Verifier verifier = new Verifier(code);
+        Token accessToken = service.getAccessToken(verifier);
 
-    UserInfoData userData = userInfo.getData();
+        Instagram instagram = new Instagram(accessToken);
+        String userId = "458131440";
+        UserInfo userInfo = instagram.getUserInfo(userId);
+
+        UserInfoData userData = userInfo.getData();
         try (PrintWriter out = response.getWriter()) {
 
             /* TODO output your page here. You may use following sample code. */
