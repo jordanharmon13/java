@@ -55,7 +55,7 @@ public class instaOperations extends HttpServlet {
     Token accessToken = service.getAccessToken(EMPTY_TOKEN, verifier);
 
     Instagram instagram = new Instagram(accessToken);
-    long userId = 3;
+    long userId = 458131440;
     UserInfo userInfo = instagram.getUserInfo(userId);
 
     UserInfoData userData = userInfo.getData();
