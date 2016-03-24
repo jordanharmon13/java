@@ -23,7 +23,7 @@ import static instagram.Constants.REDIRECT_URI;
 public class InstaAPI extends HttpServlet {
     /*String clientID = "8e92bafbcdcc4c849fdca959b0daba81";
     String clientSecret = "024355aaf3d34ba995cdd7dcde5a6bef";
-    String redirectURI = "http://java-jordanharmon.rhcloud.com/InstaOperations";
+    String redirectURI = "http://java-jordanharmon.rhcloud.com/handleInstaOperations";
     String imageDirectory = "pics/";
 */
     /**
