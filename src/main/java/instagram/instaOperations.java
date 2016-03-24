@@ -23,8 +23,6 @@ import org.jinstagram.auth.oauth.InstagramService;
 @WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
 public class instaOperations extends HttpServlet {
     
-    private static final Token EMPTY_TOKEN = null;
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String code = request.getParameter("code");
 
