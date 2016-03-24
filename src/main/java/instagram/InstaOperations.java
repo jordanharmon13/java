@@ -20,7 +20,7 @@ import org.jinstagram.auth.oauth.InstagramService;
  * @author jorda
  */
 //@WebServlet(name = "instaOperations", urlPatterns = {"/instaOperations"})
-public class instaOperations extends HttpServlet {
+public class InstaOperations extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
