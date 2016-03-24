@@ -1,7 +1,7 @@
 <%-- 
     Document   : instaMain
     Created on : Mar 24, 2016, 1:37:31 PM
-    Author     : David
+    Author     : Jordan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

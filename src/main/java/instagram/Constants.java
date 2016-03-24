@@ -17,7 +17,7 @@ public final class Constants {
      */
     public static final String CLIENT_ID = "8e92bafbcdcc4c849fdca959b0daba81";
     public static final String CLIENT_SECRET = "024355aaf3d34ba995cdd7dcde5a6bef";
-    public static final String REDIRECT_URI = "http://java-jordanharmon.rhcloud.com/instaOperations";
+    public static final String REDIRECT_URI = "http://java-jordanharmon.rhcloud.com/handleinstaOperations";
 
 
     /**
